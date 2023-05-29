@@ -8,10 +8,12 @@ import { GaleryModule } from './galery/galery.module';
 import { VideosModule } from './videos/videos.module';
 import { CategoryModule } from './category/category.module';
 import { ProgramsModule } from './programs/programs.module';
+import cors from 'cors';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }))
+  app.use(cors())
 
   const options = new DocumentBuilder()
   .setTitle('swagger api documentation')
