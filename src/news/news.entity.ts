@@ -137,7 +137,7 @@ export class News{
     @IsString()
     link: string
 
-    @OneToMany(()=>GaleryEntity,(galery)=>galery.news)
+    @OneToMany(()=>GaleryEntity,(galery)=>galery.news,{onDelete:"CASCADE",onUpdate:"CASCADE"})
     galery:GaleryEntity[]
 
     @CreateDateColumn({ type: "timestamp" })

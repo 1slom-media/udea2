@@ -19,7 +19,7 @@ export class CategoryEntity{
     @IsString()
     category_en: string
 
-    @OneToMany(()=>ProgramsEntity,(programs)=>programs.category)
+    @OneToMany(()=>ProgramsEntity,(programs)=>programs.category,{onDelete:"CASCADE",onUpdate:"CASCADE"})
     programs:ProgramsEntity[]
 
     @CreateDateColumn({ type: "timestamp" })

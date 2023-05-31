@@ -18,6 +18,6 @@ export class GaleryEntity {
     @UpdateDateColumn({ type: "timestamp" })
     updateAt: Date;
 
-    @ManyToOne(()=>News,(news)=>news.galery)
+    @ManyToOne(()=>News,(news)=>news.galery,{onDelete:"CASCADE",onUpdate:"CASCADE"})
     news:News
 }

@@ -236,11 +236,11 @@ export class ProgramsEntity{
     @IsString()
     hero_title3_en: string
 
-    @ManyToOne(()=>CategoryEntity,(category)=>category.programs)
+    @ManyToOne(()=>CategoryEntity,(category)=>category.programs,{onDelete:"CASCADE",onUpdate:"CASCADE"})
     @JoinColumn()
     category:CategoryEntity
 
-    @OneToMany(()=>VideosEntity,(videos)=>videos.programs)
+    @OneToMany(()=>VideosEntity,(videos)=>videos.programs,{onDelete:"CASCADE",onUpdate:"CASCADE"})
     videos:VideosEntity[]
 
     @CreateDateColumn({ type: "timestamp" })

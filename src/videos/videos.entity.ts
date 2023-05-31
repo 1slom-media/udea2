@@ -12,7 +12,7 @@ export class VideosEntity {
     @IsString()
     link: string
 
-    @ManyToOne(()=>ProgramsEntity,(programs)=>programs.videos)
+    @ManyToOne(()=>ProgramsEntity,(programs)=>programs.videos,{onDelete:"CASCADE",onUpdate:"CASCADE"})
     programs:ProgramsEntity
 
     @CreateDateColumn({ type: "timestamp" })
