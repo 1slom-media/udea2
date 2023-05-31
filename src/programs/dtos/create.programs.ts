@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString } from "class-validator";
+import { Allow, IsString } from "class-validator";
 import { CategoryEntity } from "src/category/category.entity";
 
 export class CreateDtoPrograms {
@@ -197,5 +197,42 @@ export class CreateDtoPrograms {
     price_description_en: string
 
     @ApiProperty()
+    @IsString()
+    hero_title_uz: string
+
+    @ApiProperty()
+    @IsString()
+    hero_title_ru: string
+
+    @ApiProperty()
+    @IsString()
+    hero_title_en: string
+
+    @ApiProperty()
+    @IsString()
+    hero_title2_uz: string
+
+    @ApiProperty()
+    @IsString()
+    hero_title2_ru: string
+
+    @ApiProperty()
+    @IsString()
+    hero_title2_en: string
+
+    @ApiProperty()
+    @IsString()
+    hero_title3_uz: string
+
+    @ApiProperty()
+    @IsString()
+    hero_title3_ru: string
+
+    @ApiProperty()
+    @IsString()
+    hero_title3_en: string
+
+    @ApiProperty()
+    @Allow()
     category:CategoryEntity
 }

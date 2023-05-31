@@ -1,6 +1,7 @@
 import { IsString } from "class-validator";
 import { CategoryEntity } from "src/category/category.entity";
-import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne } from "typeorm";
+import { VideosEntity } from "src/videos/videos.entity";
+import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne, JoinColumn } from "typeorm";
 
 
 @Entity("programs")
@@ -199,8 +200,48 @@ export class ProgramsEntity{
     @IsString()
     price_description_en: string
 
+    @Column({ type: "text"})
+    @IsString()
+    hero_title_uz: string
+
+    @Column({ type: "text"})
+    @IsString()
+    hero_title_ru: string
+
+    @Column({ type: "text"})
+    @IsString()
+    hero_title_en: string
+
+    @Column({ type: "text"})
+    @IsString()
+    hero_title2_uz: string
+
+    @Column({ type: "text"})
+    @IsString()
+    hero_title2_ru: string
+
+    @Column({ type: "text"})
+    @IsString()
+    hero_title2_en: string
+
+    @Column({ type: "text"})
+    @IsString()
+    hero_title3_uz: string
+
+    @Column({ type: "text"})
+    @IsString()
+    hero_title3_ru: string
+
+    @Column({ type: "text"})
+    @IsString()
+    hero_title3_en: string
+
     @ManyToOne(()=>CategoryEntity,(category)=>category.programs)
+    @JoinColumn()
     category:CategoryEntity
+
+    @OneToMany(()=>VideosEntity,(videos)=>videos.programs)
+    videos:VideosEntity[]
 
     @CreateDateColumn({ type: "timestamp" })
     createdAt: Date;

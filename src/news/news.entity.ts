@@ -119,7 +119,15 @@ export class News{
 
     @Column({ type: "text"})
     @IsString()
-    quote: string
+    quote_uz: string
+
+    @Column({ type: "text"})
+    @IsString()
+    quote_ru: string
+
+    @Column({ type: "text"})
+    @IsString()
+    quote_en: string
 
     @Column({ type: "varchar", length:200})
     @IsString()

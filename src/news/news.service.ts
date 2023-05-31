@@ -44,7 +44,7 @@ export class NewsService {
         return this.newsRepo.remove(news);
     }
 
-    async update(id: string, title_uz: string, title_en: string,title_ru:string,title_uz2: string, title_en2: string,title_ru2:string,title_uz3: string, title_en3: string,title_ru3:string,title_uz4: string, title_en4: string,title_ru4:string,link:string,full_name:string,quote:string,image:string,image2:string,date_time:string,banner_img:string,description_uz:string,description_en:string,description_ru:string,description_uz2:string,description_en2:string,description_ru2:string,description_uz3:string,description_en3:string,description_ru3:string,description_uz4:string,description_en4:string,description_ru4:string,) {
+    async update(id: string, title_uz: string, title_en: string,title_ru:string,title_uz2: string, title_en2: string,title_ru2:string,title_uz3: string, title_en3: string,title_ru3:string,title_uz4: string, title_en4: string,title_ru4:string,link:string,full_name:string,quote_uz:string,quote_ru:string,quote_en:string,image:string,image2:string,date_time:string,banner_img:string,description_uz:string,description_en:string,description_ru:string,description_uz2:string,description_en2:string,description_ru2:string,description_uz3:string,description_en3:string,description_ru3:string,description_uz4:string,description_en4:string,description_ru4:string,) {
         const news = await this.newsRepo.findOneBy({ id })
         if (!news) {
             return new NotFoundException("news not found");
@@ -77,7 +77,9 @@ export class NewsService {
         news.date_time=date_time
         news.image=image
         news.image2=image2
-        news.quote=quote
+        news.quote_uz=quote_uz
+        news.quote_en=quote_en
+        news.quote_ru=quote_ru
         news.full_name=full_name
         news.link=link
         

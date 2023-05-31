@@ -9,11 +9,19 @@ export class VideosService {
     constructor(@InjectRepository(VideosEntity) public videoRepo: Repository<VideosEntity>) { }
 
     findAll() {
-        return this.videoRepo.find({});
+        return this.videoRepo.find({
+            relations:{
+                programs:true
+            }
+        });
     }
 
     async findOne(id: string) {
-        const video = await this.videoRepo.findBy({id})
+        const video = await this.videoRepo.find({
+            relations:{
+                programs:true
+            },where:{id}
+        })
 
         if (!video) {
             return new NotFoundException("video not found");
@@ -28,16 +36,13 @@ export class VideosService {
         return this.videoRepo.save(video);
     }
 
-    async update(id: string,category_uz: string,category_en: string,category_ru: string,link:string ) {
+    async update(id: string,link:string,programs:any) {
         const video = await this.videoRepo.findOneBy({ id })
         if (!video) {
             return new NotFoundException("video not found");
         }
-
-        video.category_uz=category_uz
-        video.category_en=category_en
-        video.category_ru=category_ru
         video.link=link
+        video.programs=programs
 
         return this.videoRepo.save(video)
     }

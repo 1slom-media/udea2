@@ -117,7 +117,15 @@ export class UpdateDtoNews {
 
     @ApiProperty()
     @IsString()
-    quote: string
+    quote_uz: string
+
+    @ApiProperty()
+    @IsString()
+    quote_ru: string
+
+    @ApiProperty()
+    @IsString()
+    quote_en: string
 
     @ApiProperty()
     @IsString()

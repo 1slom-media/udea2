@@ -32,6 +32,6 @@ export class VideosController {
 
     @Patch(":id")
     update(@Param("id") id:string, @Body() body:UpdateVideosDto){
-        return this.videoService.update(id,body.category_uz,body.category_en,body.category_ru,body.link);
+        return this.videoService.update(id,body.link,body.programs);
     }
 }
