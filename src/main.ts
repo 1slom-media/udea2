@@ -8,6 +8,7 @@ import { GaleryModule } from './galery/galery.module';
 import { VideosModule } from './videos/videos.module';
 import { CategoryModule } from './category/category.module';
 import { ProgramsModule } from './programs/programs.module';
+import { CategoryBannerModule } from './category_banner/category_banner.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -21,7 +22,7 @@ async function bootstrap() {
   .addTag('Udea')
   .build();
 const Document = SwaggerModule.createDocument(app, options, {
-  include: [NewsModule,BannersModule,GaleryModule,VideosModule,CategoryModule,ProgramsModule]
+  include: [NewsModule,BannersModule,GaleryModule,VideosModule,CategoryModule,ProgramsModule,CategoryBannerModule]
 });
 SwaggerModule.setup('api', app, Document);
   
