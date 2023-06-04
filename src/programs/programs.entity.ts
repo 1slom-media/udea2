@@ -14,6 +14,18 @@ export class ProgramsEntity{
 
     @Column({type:"varchar"})
     @IsString()
+    main_title_uz:string
+
+    @Column({type:"varchar"})
+    @IsString()
+    main_title_en:string
+
+    @Column({type:"varchar"})
+    @IsString()
+    main_title_ru:string
+
+    @Column({type:"varchar"})
+    @IsString()
     course_overview_uz:string
 
     @Column({type:"varchar"})

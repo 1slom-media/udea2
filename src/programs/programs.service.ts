@@ -47,7 +47,7 @@ export class ProgramsService {
         return this.programsRepo.remove(programs);
     }
 
-    async update(id: string, banner_img: string, course_overview_uz: string,course_overview_en:string,course_overview_ru: string, course_description_uz: string,course_description_en:string,course_description_ru: string, content_title_uz: string,content_title_en:string,content_title_ru: string, content_description_uz: string,content_description_en:string,content_description_ru:string,completed_title_uz:string,completed_title_en:string,completed_title_ru:string,completed_description_uz:string,completed_description_ru:string,completed_description_en:string,date_uz:string,date_ru:string,date_en:string,date_description_uz:string,date_description_ru:string,date_description_en:string,year_uz:string,year_en:string,year_ru:string,year_description_uz:string,year_description_en:string,year_description_ru:string,language_uz: string,language_en: string,language_ru: string,language_description_uz: string,language_description_en: string,language_description_ru: string,moment_uz: string,moment_en: string,moment_ru: string,moment_description_uz: string,moment_description_en: string,moment_description_ru: string,price_uzs: string,price_usd: string,price_description_uz: string,price_description_ru: string,price_description_en: string,category:any,hero_title_uz:string,hero_title_en:string,hero_title_ru:string,hero_title2_uz:string,hero_title2_en:string,hero_title2_ru:string,hero_title3_uz:string,hero_title3_en:string,hero_title3_ru:string) {
+    async update(id: string,banner_img:string , course_overview_uz:string ,course_overview_en:string,course_overview_ru:string , course_description_uz:string ,course_description_en:string,course_description_ru:string , content_title_uz:string ,content_title_en:string,content_title_ru:string , content_description_uz:string ,content_description_en:string,content_description_ru:string,completed_title_uz:string,completed_title_en:string,completed_title_ru:string,completed_description_uz:string,completed_description_ru:string,completed_description_en:string,date_uz:string,date_ru:string,date_en:string,date_description_uz:string,date_description_ru:string,date_description_en:string,year_uz:string,year_en:string,year_ru:string,year_description_uz:string,year_description_en:string,year_description_ru:string,language_uz:string ,language_en:string ,language_ru:string ,language_description_uz:string ,language_description_en:string ,language_description_ru:string ,moment_uz:string ,moment_en:string ,moment_ru:string ,moment_description_uz:string ,moment_description_en:string ,moment_description_ru:string ,price_uzs:string ,price_usd:string ,price_description_uz:string ,price_description_ru:string ,price_description_en:string,hero_title_uz:string,hero_title_ru:string,hero_title_en:string,hero_title2_en:string,hero_title2_ru:string,hero_title2_uz:string,hero_title3_en:string,hero_title3_ru:string,hero_title3_uz:string,main_title_en:string,main_title_uz:string,main_title_ru:string,category:any) {
         const programs = await this.programsRepo.findOneBy({ id })
         if (!programs) {
             return new NotFoundException("programs not found");
@@ -111,6 +111,9 @@ export class ProgramsService {
         programs.hero_title3_uz=hero_title3_uz
         programs.hero_title3_ru=hero_title3_ru
         programs.hero_title3_en=hero_title3_en
+        programs.main_title_uz=main_title_uz
+        programs.main_title_ru=main_title_ru
+        programs.main_title_en=main_title_en
         
         
         return this.programsRepo.save(programs)

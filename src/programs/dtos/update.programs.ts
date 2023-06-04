@@ -10,6 +10,18 @@ export class UpdateDtoPrograms {
 
     @ApiProperty()
     @IsString()
+    main_title_uz:string
+
+    @ApiProperty()
+    @IsString()
+    main_title_en:string
+
+    @ApiProperty()
+    @IsString()
+    main_title_ru:string
+
+    @ApiProperty()
+    @IsString()
     course_overview_uz:string
 
     @ApiProperty()

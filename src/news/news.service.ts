@@ -44,7 +44,7 @@ export class NewsService {
         return this.newsRepo.remove(news);
     }
 
-    async update(id: string, title_uz: string, title_en: string,title_ru:string,title_uz2: string, title_en2: string,title_ru2:string,title_uz3: string, title_en3: string,title_ru3:string,title_uz4: string, title_en4: string,title_ru4:string,link:string,full_name:string,quote_uz:string,quote_ru:string,quote_en:string,image:string,image2:string,date_time:string,banner_img:string,description_uz:string,description_en:string,description_ru:string,description_uz2:string,description_en2:string,description_ru2:string,description_uz3:string,description_en3:string,description_ru3:string,description_uz4:string,description_en4:string,description_ru4:string,) {
+    async update(id: string, title_uz:string, title_en:string, title_ru:string, title_uz2:string, title_en2:string, title_ru2:string,title_uz3:string, title_en3:string, title_ru3:string,title_uz4:string, title_en4:string, title_ru4:string,description_uz:string,description_ru:string,description_en:string,description_uz2:string,description_ru2:string,description_en2:string,description_uz3:string,description_ru3:string,description_en3:string,description_uz4:string,description_ru4:string,description_en4:string,banner_img:string,date_time:string,image:string,image2:string,quote_uz:string,quote_ru:string,quote_en:string,full_name:string,link:string) {
         const news = await this.newsRepo.findOneBy({ id })
         if (!news) {
             return new NotFoundException("news not found");

@@ -1,18 +1,8 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString } from "class-validator";
+import { Allow, IsString } from "class-validator";
+import { CategoryBannerEntity } from "src/category_banner/category_banner";
 
 export class UpdateBannersDto{
-    @ApiProperty()
-    @IsString()
-    category_uz: string
-
-    @ApiProperty()
-    @IsString()
-    category_ru: string
-
-    @ApiProperty()
-    @IsString()
-    category_en: string
 
     @ApiProperty()
     @IsString()
@@ -41,4 +31,8 @@ export class UpdateBannersDto{
     @ApiProperty()
     @IsString()
     image4: string
+
+    @ApiProperty()
+    @Allow()
+    category_banner:CategoryBannerEntity
 }

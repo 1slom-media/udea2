@@ -32,6 +32,6 @@ export class BannersController {
 
     @Patch(":id")
     update(@Param("id") id:string, @Body() body:UpdateBannersDto){
-        return this.bannerService.update(id,body.image,body.image2,body.image3,body.image4,body.category_uz,body.category_en,body.category_ru);
+        return this.bannerService.update(id,body.image,body.image2,body.image3,body.image4,body.category_banner);
     }
 }

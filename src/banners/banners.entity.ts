@@ -1,23 +1,12 @@
 import { IsString } from "class-validator";
-import { Entity, PrimaryGeneratedColumn, Column,CreateDateColumn,UpdateDateColumn} from "typeorm";
+import { CategoryBannerEntity } from "src/category_banner/category_banner";
+import { Entity, PrimaryGeneratedColumn, Column,CreateDateColumn,UpdateDateColumn, ManyToOne} from "typeorm";
 
 
 @Entity({ name: "banners" })
 export class BannersEntity {
     @PrimaryGeneratedColumn()
     id: string
-
-    @Column({ type: "varchar" })
-    @IsString()
-    category_uz: string
-
-    @Column({ type: "varchar" })
-    @IsString()
-    category_ru: string
-
-    @Column({ type: "varchar" })
-    @IsString()
-    category_en: string
 
     @Column({ type: "varchar" })
     @IsString()
@@ -46,6 +35,9 @@ export class BannersEntity {
     @Column({ type: "text",nullable:true })
     @IsString()
     image4: string
+
+    @ManyToOne(()=>CategoryBannerEntity,(category_banner)=>category_banner.banner,{onDelete:"CASCADE",onUpdate:"CASCADE"})
+    category_banner:CategoryBannerEntity
 
     @CreateDateColumn({ type: "timestamp" })
     createdAt: Date;
